@@ -4,7 +4,7 @@ const {setUser} = require("../services/auth");
 
 async function handleUserSignup(req, res) {
     try {
-        const { firstName, lastName, email, password } = req.body;
+        const { firstName, lastName, email, password, image } = req.body;
         // Check if user already exists
         let existingUser = await User.findOne({ email });
         if (existingUser) {
@@ -18,7 +18,8 @@ async function handleUserSignup(req, res) {
             firstName,
             lastName,
             email,
-            password: hashedPassword
+            password: hashedPassword,
+            image
         });
         // console.log("sfdfdsfdf",req.body )
 
